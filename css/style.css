@@ -1,0 +1,371 @@
+body {
+    display: flex;
+    overflow: hidden;
+}
+
+.menubutt {
+    width: 15%;
+}
+
+.dop-menu {
+    position: absolute;
+    width: 250px;
+    margin: 0;
+    margin-left: 0;
+    margin-top: 150px;
+    transform: translateX(+36%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 1;
+}
+
+#calcDiv.menu-open #dop-menu {
+    transform: translateX(-64%);
+}
+
+.dop-buttons-hex {
+    position: absolute;
+    width: 325px;
+    margin: 0;
+    margin-left: 0;
+    margin-top: 150px;
+    transform: translateX(96%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 1;
+}
+
+#calcDiv.buttons-open #dop-buttons-hex {
+    transform: translateX(147%);
+}
+
+.container {
+    width: 65%;
+    margin: 0;
+    z-index: 2;
+}
+
+.calc {
+    display: flex;
+    width: 600px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.screen { 
+    margin-top: 50px;
+    height: 100px;
+    background-color: #cacaca;
+    color: black;
+    font-size: 30px;
+    text-align: right;
+    padding-right: 20px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.screen p {
+  overflow-y: hidden;
+  white-space: nowrap;
+  padding-bottom: 30px;
+}
+
+.screen p::-webkit-scrollbar {
+  display: none;
+}
+
+.output {
+    font-size: 18px;
+    opacity: 0.5;
+}
+
+.outputChoose {
+    font-size: 20px;
+}
+.overCh, .overResCh {
+    border: 1px solid transparent;
+    filter: blur(5px);
+    position: absolute;
+    top: 21px;
+    left: 0;
+    width: 1%;
+    height: 44%;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+  }
+
+.over, .overRes {
+  border: 1px solid transparent;
+  filter: blur(5px);
+  position: absolute;
+  top: 4px;
+  left: 0;
+  width: 1%;
+  height: 44%;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+}
+
+.overResCh {
+    top: 23px;
+    height: 36%;
+}
+
+.overRes {
+  height: 36%;
+  top: 64px;
+}
+
+.over.show, .overRes.show {
+  opacity: 1;
+}
+
+.overCh.show, .overResCh.show {
+    opacity: 1;
+}
+
+.result {
+    margin-top: 0px;
+}
+
+.buttons {
+    display: flex; 
+    flex-wrap: wrap; 
+}
+
+.row {
+    display: flex; 
+    width: 100%; 
+}
+
+.button {
+    user-select: none; 
+    width: 25%; 
+    height: 80px; 
+    background-color: #f1f1f1; 
+    border: 1px solid #ddd; 
+    text-align: center; 
+    font-size: 30px; 
+    line-height: 80px; 
+    cursor: pointer; 
+    position: relative;
+    overflow: hidden;
+}
+
+.button.convM {
+    cursor: default;
+}
+
+.equal {
+    width: 50%; 
+    background-color: #c28f31; 
+}
+
+.button.dop {
+    width: 33%; 
+    height: 80px; 
+}
+
+.button.dop.bott {
+    width: 100%;
+    height: 80px;
+}
+
+.button.dop.menu {
+    margin-top: 50px; 
+    margin-left: 6px; 
+    margin-right: auto; 
+    margin-bottom: auto; 
+    padding-top: 10px;
+    width: 92%;  
+    height: 88px;
+    font-size: 25px;  
+}
+
+.button:not(.convM, .inactive):hover {
+    background-color: #ddd; 
+    transform: scale(1.05);  
+}
+
+.button.equal:not(.inactive):hover {
+    background-color: #ffa500;  
+    transform: scale(1.05);  
+}
+
+:root {
+    --background-color: #f1f1f1;
+    --text-color: black;
+}
+  
+body.dark {
+    --background-color: #333;
+    --text-color: white;
+}
+  
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+  
+body.dark .button, body.dark .equal {
+    background-color: #555;
+    color: white;
+}
+  
+body.dark .equal {
+    background-color: #d49726;
+}
+  
+body.dark .button:not(.convM, .inactive):hover {
+    background-color: #474747; 
+    transform: scale(1.05);  
+}
+  
+body.dark .button.equal:not(.inactive):hover {
+    background-color: rgb(216, 140, 0);  
+    transform: scale(1.05);  
+}
+
+.inactive {
+    cursor: not-allowed;
+    background-color: rgb(145, 145, 145);
+}
+
+body.dark .inactive {
+    cursor: not-allowed;
+    background-color: rgb(51, 51, 51);
+}
+
+.row.hidMenConv {
+    position: absolute;
+    transform: translateY(-100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: -1;
+}
+
+.row.hidMenConv.opn {
+    transform: translateY(+0%);
+}
+
+.button.convM  {
+    display: block;
+    position: absolute;
+    transform: translateY(-100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: -2;
+    width: 99%;
+    height: 160px;
+    font-size: 20px;
+    overflow-y: hidden;
+    white-space: nowrap;
+}
+
+.row.choose {
+    height: 80px;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+}
+
+.row.choose p {
+    overflow-y: hidden;
+    white-space: nowrap;
+    margin-right: 90px;
+}
+
+.row.choose p::-webkit-scrollbar {
+    display: none;
+}
+
+#first-row-choose {
+    border-bottom: 1px solid black;
+}
+
+body.dark #first-row-choose {
+    border-bottom: 1px solid white;
+}
+
+.button.convM.opn {
+    transform: translateY(+50%);
+}
+
+.button.button.dop.conv {
+    font-size: 25px;
+}
+
+.resultChoose {
+    font-size: 20px;
+}
+
+select {
+    margin: 2px;
+}
+
+.button:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.3s ease-out, height 0.3s ease-out;
+}
+
+body.dark .button:after {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.button.animate:not(.inactive):not(.convM)::after {
+    width: 200%;
+    height: 200%;
+}
+
+.button.switched {
+    background-color: #ddd;
+}
+
+body.dark .button.switched {
+    background-color: #474747; 
+}
+
+select {
+    position: absolute;
+    background-color: #f1f1f1;
+    border: 1px solid black;
+    border-radius: 5px;
+    font-size: 20px;
+    margin-left: 175px;
+    margin-top: 22px;
+    padding: 6px;
+}
+
+option {
+    background-color: #f1f1f1;
+    font-size: 20px;
+}
+
+body.dark select {
+    background-color: #474747; 
+    color: white;
+}
+
+body.dark option {
+    background-color: #555;
+    color: white;
+}
+
+.button.dop.conv.ln.act, .button.dop.conv.ms.act, .button.dop.conv.ar.act {
+    background-color: #ddd; 
+}
+
+body.dark .button.dop.conv.ln.act, body.dark .button.dop.conv.ms.act, body.dark .button.dop.conv.ar.act {
+    background-color: #474747; 
+}
+
+.outputChoose, .resultChoose {
+    user-select: text;
+    margin-left: 10px;
+    margin-top: 0px;
+}

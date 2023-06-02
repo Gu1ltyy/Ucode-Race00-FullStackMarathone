@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="icon" href="https://i.imgur.com/0KtoOLJ.png">
+        <title>Calculator</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <div class="calc" id="calcDiv">
+            <div class="menubutt">
+                <div class="button dop menu" id="menuButton">&#60;</div>
+            </div>
+            <div id="dop-menu" class="dop-menu">
+                <div class="row">
+                    <div class="button dop" id="theme-div" onclick="theme()">&#9728;&#65039;</div>
+                    <div class="button dop" onclick="factor()">x!</div>
+                    <div class="button dop" onclick="input('^')">x<sup>n</sup></div>
+                </div>
+                <div class="row">
+                    <div class="button dop" onclick="memRecall()">MR</div>
+                    <div class="button dop" onclick="memReset()">MC</div>
+                    <div class="button dop" onclick="square()">√x</div>
+                </div>
+                <div class="row">
+                    <div class="button dop" onclick="memSumm()">M+</div>
+                    <div class="button dop" onclick="memDiff()">M-</div>
+                    <div class="button dop" id="base" onclick="systemBase()">DEC</div>
+                </div>
+                <div class="row">
+                    <div class="button dop bott" onclick="conv()">&#8646;</div>
+                </div>
+                <div class="row hidMenConv">
+                    <div class="button dop conv ln" onclick="convWorkF('length')">km</div>
+                    <div class="button dop conv ms" onclick="convWorkF('mass')">kg</div>
+                    <div class="button dop conv ar" onclick="convWorkF('area')">m&sup2;</div>
+                </div>
+                <div class="button convM">
+                    <div class="row choose" id="first-row-choose">
+                        <div class="overCh"></div>
+                        <p class="outputChoose"></p>
+                        <select id="dropdownFrom" onchange="mathConvertation()">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select>
+                    </div>
+                    <div class="row choose">
+                        <div class="overResCh"></div>
+                        <p class="resultChoose">0</p>
+                        <select id="dropdownTo" onchange="mathConvertation()">
+                            <option value="" selected disabled hidden></option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div id="dop-buttons-hex" class="dop-buttons-hex">
+                <div class="row">
+                    <div class="button letter" onclick="input('A')">A</div>
+                    <div class="button letter" onclick="input('B')">B</div>
+                </div>
+                <div class="row">
+                    <div class="button letter" onclick="input('C')">C</div>
+                    <div class="button letter" onclick="input('D')">D</div>
+                </div>
+                <div class="row">
+                    <div class="button letter" onclick="input('E')">E</div>
+                    <div class="button letter" onclick="input('F')">F</div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="screen">
+                    <p class="output"></p>
+                    <div class="over"></div>
+                    <div class="overRes"></div>
+                    <p class="result">0</p>
+                </div>
+                <div class="buttons">
+                    <div class="row">
+                        <div class="button" onclick="reset()">C</div>
+                        <div class="button" onclick="switchSign()">+/-</div>
+                        <div class="button" onclick="percent()">%</div>
+                        <div class="button" onclick="input('/')">/</div>
+                    </div>
+                    <div class="row">
+                        <div class="button" onclick="input('7')">7</div>
+                        <div class="button" onclick="input('8')">8</div>
+                        <div class="button" onclick="input('9')">9</div>
+                        <div class="button" onclick="input('*')">*</div>
+                    </div>
+                    <div class="row">
+                        <div class="button" onclick="input('4')">4</div>
+                        <div class="button" onclick="input('5')">5</div>
+                        <div class="button" onclick="input('6')">6</div>
+                        <div class="button" onclick="input('+')">+</div>
+                    </div>
+                    <div class="row">
+                        <div class="button" onclick="input('1')">1</div>
+                        <div class="button" onclick="input('2')">2</div>
+                        <div class="button" onclick="input('3')">3</div>
+                        <div class="button" onclick="input('-')">-</div>
+                    </div>
+                    <div class="row">
+                        <div class="button" onclick="input('0')">0</div>
+                        <div class="button" onclick="input('.')">.</div>
+                        <div class="button equal" onclick="equal()">=</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="js/script.js"></script>
+    </body>
+</html>
